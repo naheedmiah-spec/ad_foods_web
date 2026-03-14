@@ -1,0 +1,9 @@
+/* Styles moved to Pages.css */
+.values-list {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.values-list li {
+  margin-bottom: 12px;
+}

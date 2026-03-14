@@ -1,0 +1,47 @@
+/* Styles moved to Pages.css or specific to Contact */
+.info-details-row {
+    display: flex;
+    gap: 30px;
+    margin-top: 24px;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--bg-secondary);
+    padding: 15px 20px;
+    border-radius: var(--radius-md);
+    flex: 1;
+}
+
+.info-icon {
+    font-size: 24px;
+}
+
+.info-card strong {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.info-card p {
+    color: var(--text-primary);
+    font-weight: 700;
+    margin: 0;
+}
+
+.map-wrapper {
+    margin-top: 20px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+}
+
+@media (max-width: 640px) {
+    .info-details-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
