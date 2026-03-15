@@ -85,7 +85,8 @@ export default function Header() {
             <nav className={`sticky-nav ${isMenuOpen ? 'mobile-open' : ''}`}>
                 <div className="container nav-content">
                     <ul className="nav-menu">
-                        <li><Link to="/" onClick={closeMenu}>Groceries</Link></li>
+                        <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+                        <li><Link to="/catalog" onClick={closeMenu}>Groceries</Link></li>
                         {isAdmin && (
                             <>
                                 <li><Link to="/admin" className="admin-nav-link" onClick={closeMenu}>Analytics</Link></li>
