@@ -1,5 +1,33 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+
+const slides = [
+    {
+        id: 1,
+        badge: "New Arrival",
+        title: "Fresh Organic <br /><span>Produce</span>",
+        text: "Directly from local farms to our stores. Discover the taste of nature's best ingredients.",
+        imageChar: "🥬",
+        color: "#82b036"
+    },
+    {
+        id: 2,
+        badge: "Just In",
+        title: "Authentic Asian <br /><span>Spices</span>",
+        text: "Enhance your cooking with our premium selection of imported spices and seasonings.",
+        imageChar: "🌶️",
+        color: "#ef4444"
+    },
+    {
+        id: 3,
+        badge: "Freshly Baked",
+        title: "Artisan Bakery <br /><span>Delights</span>",
+        text: "Soft, warm, and delicious. Our bakery items are prepared daily for the perfect crunch.",
+        imageChar: "🍞",
+        color: "#f59e0b"
+    }
+];
 
 const categories = [
     { id: 1, name: 'Groceries', image: '🛒', color: '#82b036' },
@@ -11,26 +39,65 @@ const categories = [
 ];
 
 export default function Home() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
+    const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+    const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+
     return (
         <div className="home-container animate-fade-in">
             <section className="hero-section">
-                <div className="container hero-content">
-                    <div className="hero-text">
-                        <span className="hero-badge">New Arrivals Weekly</span>
-                        <h1>Authentic Quality <br /><span>Ingredients</span></h1>
-                        <p>Sourced with care, delivered with love. Discover our wide range of premium grocery items.</p>
-                        <Link to="/catalog" className="cta-btn">Shop the Catalog</Link>
-                    </div>
-                    <div className="hero-image">
-                        <div className="hero-svg-placeholder">
-                            {/* This would be a nice image or illustration */}
-                            <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="200" cy="200" r="180" fill="#82b036" fillOpacity="0.1" />
-                                <rect x="100" y="100" width="200" height="250" rx="10" fill="white" stroke="#82b036" strokeWidth="4" />
-                                <circle cx="200" cy="180" r="40" fill="#82b036" fillOpacity="0.2" />
-                            </svg>
+                <div className="slideshow-controls">
+                    <button className="slide-arrow prev" onClick={prevSlide}>&larr;</button>
+                    <button className="slide-arrow next" onClick={nextSlide}>&rarr;</button>
+                </div>
+
+                {slides.map((slide, index) => (
+                    <div
+                        key={slide.id}
+                        className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+                    >
+                        <div className="container hero-content">
+                            <div className="hero-text">
+                                <span className="hero-badge" style={{ backgroundColor: `${slide.color}20`, color: slide.color }}>
+                                    {slide.badge}
+                                </span>
+                                <h1 dangerouslySetInnerHTML={{ __html: slide.title }} />
+                                <p>{slide.text}</p>
+                                <Link to="/catalog" className="cta-btn" style={{ backgroundColor: slide.color }}>
+                                    Explore Catalog
+                                </Link>
+                            </div>
+                            <div className="hero-image">
+                                <div className="hero-svg-placeholder" style={{ borderColor: slide.color }}>
+                                    <div className="slide-icon-burst" style={{ backgroundColor: `${slide.color}15` }}>
+                                        <span>{slide.imageChar}</span>
+                                    </div>
+                                    <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="200" cy="200" r="180" fill={slide.color} fillOpacity="0.05" />
+                                        <rect x="100" y="100" width="200" height="250" rx="10" fill="white" stroke={slide.color} strokeWidth="2" strokeDasharray="10 5" />
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                ))}
+
+                <div className="slide-dots">
+                    {slides.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`slide-dot ${index === currentSlide ? 'active' : ''}`}
+                            onClick={() => setCurrentSlide(index)}
+                        />
+                    ))}
                 </div>
             </section>
 

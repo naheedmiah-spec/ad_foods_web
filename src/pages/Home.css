@@ -6,6 +6,30 @@
     background: var(--bg-secondary);
     padding: 80px 0;
     overflow: hidden;
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content {
@@ -13,17 +37,24 @@
     align-items: center;
     justify-content: space-between;
     gap: 60px;
+    width: 100%;
 }
 
 .hero-text {
     flex: 1;
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: all 0.8s ease 0.3s;
+}
+
+.hero-slide.active .hero-text {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .hero-badge {
     display: inline-block;
     padding: 6px 14px;
-    background: rgba(130, 176, 54, 0.1);
-    color: var(--accent-primary);
     font-weight: 700;
     font-size: 13px;
     border-radius: var(--radius-full);
@@ -53,25 +84,132 @@
 .cta-btn {
     display: inline-block;
     padding: 16px 36px;
-    background: var(--accent-primary);
     color: white;
     border-radius: var(--radius-md);
     font-weight: 700;
     font-size: 16px;
     transition: all var(--transition-smooth);
+    border: none;
+    cursor: pointer;
 }
 
 .cta-btn:hover {
-    background: var(--accent-primary-hover);
     transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(130, 176, 54, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     color: white;
+    filter: brightness(1.1);
 }
 
 .hero-image {
     flex: 1;
     display: flex;
     justify-content: center;
+    transform: scale(0.8) rotate(5deg);
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s;
+}
+
+.hero-slide.active .hero-image {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+}
+
+/* Slideshow Controls */
+.slideshow-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.slide-arrow {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    pointer-events: auto;
+}
+
+.slide-arrow:hover {
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+}
+
+.slide-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.slide-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.slide-dot.active {
+    background: var(--accent-primary);
+    transform: scale(1.3);
+}
+
+.hero-svg-placeholder {
+    position: relative;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+    border: 1px dashed #ddd;
+}
+
+.slide-icon-burst {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    animation: icon-float 3s ease-in-out infinite;
+}
+
+@keyframes icon-float {
+
+    0%,
+    100% {
+        transform: translate(-50%, -55%);
+    }
+
+    50% {
+        transform: translate(-50%, -45%);
+    }
 }
 
 .categories-section {
