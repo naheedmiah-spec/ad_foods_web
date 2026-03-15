@@ -1,4 +1,7 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
+import './Footer.css';
 
 export default function Footer() {
     const [email, setEmail] = useState('');
