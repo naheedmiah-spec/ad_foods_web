@@ -39,7 +39,6 @@ export default function Footer() {
                 <div className="footer-section">
                     <h3>Customer Services</h3>
                     <ul>
-                        <li><Link to="/delivery">Delivery Information</Link></li>
                         <li><Link to="/faq">FAQs</Link></li>
                         <li><Link to="/legal">Terms & Conditions</Link></li>
                         <li><Link to="/legal">Privacy Policy</Link></li>

@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import Catalog from './pages/Catalog';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import DeliveryInfo from './pages/DeliveryInfo';
 import FAQ from './pages/FAQs';
 import Legal from './pages/Legal';
 
@@ -40,7 +39,6 @@ function App() {
               <Route path="/catalog" element={<Catalog />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/delivery" element={<DeliveryInfo />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/legal" element={<Legal />} />
               <Route path="/login" element={<Login />} />

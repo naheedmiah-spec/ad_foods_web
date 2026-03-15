@@ -28,10 +28,6 @@ export default function Header() {
                     <div className="utility-links">
                         <Link to="/contact">Our Stores</Link>
                         <Link to="/faq">Any Questions?</Link>
-                        <Link to="/delivery">Delivery Info</Link>
-                    </div>
-                    <div className="utility-right">
-                        <span>Free Delivery on orders over £55</span>
                     </div>
                 </div>
             </div>
