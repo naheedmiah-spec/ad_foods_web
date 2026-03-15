@@ -56,24 +56,24 @@ export default function Home() {
             <section className="features-section">
                 <div className="container feature-grid">
                     <div className="feature-item">
-                        <div className="feature-icon">🚚</div>
+                        <div className="feature-icon">🌿</div>
                         <div className="feature-text">
-                            <h4>Free Delivery</h4>
-                            <p>On orders over £55</p>
+                            <h4>Fresh Ingredients</h4>
+                            <p>Sourced weekly</p>
                         </div>
                     </div>
                     <div className="feature-item">
                         <div className="feature-icon">⭐</div>
                         <div className="feature-text">
                             <h4>Quality Assured</h4>
-                            <p>Freshness guaranteed</p>
+                            <p>Hand-picked products</p>
                         </div>
                     </div>
                     <div className="feature-item">
-                        <div className="feature-icon">🛡️</div>
+                        <div className="feature-icon">📍</div>
                         <div className="feature-text">
-                            <h4>Secure Payment</h4>
-                            <p>100% safe checkout</p>
+                            <h4>Visit Us</h4>
+                            <p>3 London locations</p>
                         </div>
                     </div>
                 </div>

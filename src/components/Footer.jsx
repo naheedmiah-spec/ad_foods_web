@@ -49,8 +49,7 @@ export default function Footer() {
                 <div className="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><Link to="/">Shop Groceries</Link></li>
-                        <li><Link to="/wholesale">Wholesale</Link></li>
+                        <li><Link to="/catalog">View Catalog</Link></li>
                         <li><Link to="/about">About AD Foods</Link></li>
                         <li><Link to="/contact">Contact Us</Link></li>
                     </ul>
