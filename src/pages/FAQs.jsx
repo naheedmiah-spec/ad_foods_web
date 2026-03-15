@@ -3,20 +3,20 @@ import './Pages.css';
 
 const faqs = [
     {
-        q: "How do I earn OM points?",
-        a: "You earn 1 point for every £1 spent. Once you reach 100 points, you can redeem them for a £5 discount on your next order."
+        q: "How can I buy these products?",
+        a: "Our website is currently a product showcase. You can view our full range here, but purchases must be made in-store at one of our three London locations."
     },
     {
-        q: "Do you deliver frozen food?",
-        a: "Yes! We use specialized insulated packaging and dry ice to ensure your frozen goods arrive in perfect condition."
+        q: "Are the prices shown online accurate?",
+        a: "To ensure you get the best value, we don't display prices online as they can vary based on weekly fresh arrivals and in-store promotions."
     },
     {
-        q: "What is your return policy?",
-        a: "We accept returns for non-perishable items within 14 days. Due to health and safety, fresh and frozen goods cannot be returned unless damaged."
+        q: "Where are your stores located?",
+        a: "We have three convenient locations in London: Paddington Street, Claremont Road, and Kentish Town Road. Check our Contact page for full addresses and maps."
     },
     {
-        q: "Can I collect my order in-store?",
-        a: "Yes, 'Click & Collect' is available at all our London branches. Simply select your preferred store at checkout."
+        q: "Do I need an account to view products?",
+        a: "Anyone can browse our catalog! However, registering for an account allows you to save favorites and receive updates on new arrivals."
     }
 ];
 
