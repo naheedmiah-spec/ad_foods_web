@@ -48,6 +48,7 @@ function App() {
               <Route path="/admin" element={<ProtectedAdminRoute><AdminAnalytics /></ProtectedAdminRoute>} />
               <Route path="/users" element={<ProtectedAdminRoute><UserManagement /></ProtectedAdminRoute>} />
               <Route path="/home" element={<Navigate to="/" replace />} />
+              <Route path="/index.html" element={<Navigate to="/" replace />} />
               <Route path="/wholesale" element={<Navigate to="/catalog" replace />} />
             </Routes>
           </main>
