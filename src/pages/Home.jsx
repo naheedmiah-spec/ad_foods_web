@@ -6,25 +6,25 @@ const slides = [
     {
         id: 1,
         badge: "New Arrival",
-        title: "Fresh Organic <br /><span>Produce</span>",
-        text: "Directly from local farms to our stores. Discover the taste of nature's best ingredients.",
-        imageChar: "🥬",
+        title: "Premium Global <br /><span>Groceries</span>",
+        text: "Discover our curated selection of high-quality prepackaged goods from around the world.",
+        imageChar: "📦",
         color: "#82b036"
     },
     {
         id: 2,
         badge: "Just In",
         title: "Authentic Asian <br /><span>Spices</span>",
-        text: "Enhance your cooking with our premium selection of imported spices and seasonings.",
+        text: "Enhance your cooking with our premium selection of imported spices, sauces, and seasonings.",
         imageChar: "🌶️",
         color: "#ef4444"
     },
     {
         id: 3,
-        badge: "Freshly Baked",
-        title: "Artisan Bakery <br /><span>Delights</span>",
-        text: "Soft, warm, and delicious. Our bakery items are prepared daily for the perfect crunch.",
-        imageChar: "🍞",
+        badge: "Sweet Treats",
+        title: "International <br /><span>Confectionery</span>",
+        text: "A world of flavor in every bite. Explore our unique range of imported biscuits and treats.",
+        imageChar: "🍪",
         color: "#f59e0b"
     }
 ];
@@ -123,10 +123,10 @@ export default function Home() {
             <section className="features-section">
                 <div className="container feature-grid">
                     <div className="feature-item">
-                        <div className="feature-icon">🌿</div>
+                        <div className="feature-icon">📦</div>
                         <div className="feature-text">
-                            <h4>Fresh Ingredients</h4>
-                            <p>Sourced weekly</p>
+                            <h4>Premium Range</h4>
+                            <p>Imported specialties</p>
                         </div>
                     </div>
                     <div className="feature-item">
