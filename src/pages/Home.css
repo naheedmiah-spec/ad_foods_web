@@ -283,7 +283,7 @@
 
 .feature-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 40px;
 }
 
@@ -291,6 +291,15 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: var(--bg-secondary);
+    transform: translateY(-5px);
 }
 
 .feature-icon {
@@ -300,11 +309,13 @@
 .feature-text h4 {
     font-size: 16px;
     color: var(--text-primary);
+    margin: 0;
 }
 
 .feature-text p {
     font-size: 14px;
     color: var(--text-secondary);
+    margin: 4px 0 0 0;
 }
 
 @media (max-width: 992px) {

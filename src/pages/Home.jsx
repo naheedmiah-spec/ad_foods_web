@@ -122,27 +122,41 @@ export default function Home() {
 
             <section className="features-section">
                 <div className="container feature-grid">
-                    <div className="feature-item">
+                    <Link to="/catalog" className="feature-item">
                         <div className="feature-icon">📦</div>
                         <div className="feature-text">
                             <h4>Premium Range</h4>
                             <p>Imported specialties</p>
                         </div>
-                    </div>
-                    <div className="feature-item">
+                    </Link>
+                    <Link to="/about" className="feature-item">
                         <div className="feature-icon">⭐</div>
                         <div className="feature-text">
                             <h4>Quality Assured</h4>
                             <p>Hand-picked products</p>
                         </div>
-                    </div>
-                    <div className="feature-item">
+                    </Link>
+                    <Link to="/contact" className="feature-item">
                         <div className="feature-icon">📍</div>
                         <div className="feature-text">
                             <h4>Visit Us</h4>
                             <p>3 London locations</p>
                         </div>
-                    </div>
+                    </Link>
+                    <Link to="/about" className="feature-item">
+                        <div className="feature-icon">📖</div>
+                        <div className="feature-text">
+                            <h4>Our Story</h4>
+                            <p>About AD Foods</p>
+                        </div>
+                    </Link>
+                    <Link to="/faq" className="feature-item">
+                        <div className="feature-icon">💬</div>
+                        <div className="feature-text">
+                            <h4>Any Questions?</h4>
+                            <p>Friendly support</p>
+                        </div>
+                    </Link>
                 </div>
             </section>
         </div>
