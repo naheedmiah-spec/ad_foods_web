@@ -8,7 +8,7 @@ const faqs = [
     },
     {
         q: "Are the prices shown online accurate?",
-        a: "To ensure you get the best value, we don't display prices online as they can vary based on weekly fresh arrivals and in-store promotions."
+        a: "To ensure you get the best value, we don't display prices online as they can vary based on our latest arrivals and in-store promotions."
     },
     {
         q: "Where are your stores located?",

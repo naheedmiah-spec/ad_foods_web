@@ -33,9 +33,8 @@ const categories = [
     { id: 1, name: 'Groceries', image: '🛒', color: '#82b036' },
     { id: 2, name: 'Drinks', image: '🥤', color: '#3B82F6' },
     { id: 3, name: 'Snacks', image: '🍿', color: '#A855F7' },
-    { id: 4, name: 'Fresh', image: '🥬', color: '#22C55E' },
-    { id: 5, name: 'Frozen', image: '❄️', color: '#0EA5E9' },
-    { id: 6, name: 'Bakery', image: '🍞', color: '#F59E0B' },
+    { id: 4, name: 'Frozen', image: '❄️', color: '#0EA5E9' },
+    { id: 5, name: 'Bakery', image: '🍞', color: '#F59E0B' },
 ];
 
 export default function Home() {
