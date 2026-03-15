@@ -77,6 +77,22 @@ export function AuthProvider({ children }) {
         return data.user;
     };
 
+    const resetPassword = async (email) => {
+        const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+            redirectTo: `${window.location.origin}/reset-password`,
+        });
+        if (error) throw error;
+        return data;
+    };
+
+    const updatePassword = async (newPassword) => {
+        const { data, error } = await supabase.auth.updateUser({
+            password: newPassword
+        });
+        if (error) throw error;
+        return data;
+    };
+
     const register = async (email, password, name) => {
         const { data, error } = await supabase.auth.signUp({
             email,
@@ -107,7 +123,7 @@ export function AuthProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={{ user, isAuthenticated, isAdmin, users, login, logout, register, manageUser, loading }}>
+        <AuthContext.Provider value={{ user, isAuthenticated, isAdmin, users, login, logout, register, resetPassword, updatePassword, manageUser, loading }}>
             {children}
         </AuthContext.Provider>
     );

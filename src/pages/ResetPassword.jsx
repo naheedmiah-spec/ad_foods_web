@@ -1,23 +1,23 @@
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Pages.css';
-import './Login.css'; // Reuse Login styles
+import './Login.css';
 
-export default function Register() {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+export default function ResetPassword() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const [message, setMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const { register } = useAuth();
+    const { updatePassword } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
+        setMessage('');
 
         if (password !== confirmPassword) {
             setError('Passwords do not match');
@@ -27,10 +27,11 @@ export default function Register() {
         setIsSubmitting(true);
 
         try {
-            await register(email, password, name);
-            navigate('/catalog');
+            await updatePassword(password);
+            setMessage('Password updated successfully! Redirecting...');
+            setTimeout(() => navigate('/login'), 2000);
         } catch (err) {
-            setError(err.message || 'Failed to create account.');
+            setError(err.message || 'Failed to update password.');
         } finally {
             setIsSubmitting(false);
         }
@@ -40,37 +41,16 @@ export default function Register() {
         <div className="page-container login-page animate-fade-in">
             <div className="auth-card">
                 <div className="auth-header">
-                    <h2>Create Account</h2>
-                    <p>Join AD Foods to see wholesale prices and member exclusive deals.</p>
+                    <h2>Set New Password</h2>
+                    <p>Choose a strong, secure password for your account.</p>
                 </div>
 
                 {error && <div className="auth-error">{error}</div>}
+                {message && <div className="auth-success" style={{ color: 'var(--success)', marginBottom: '1rem', textAlign: 'center' }}>{message}</div>}
 
                 <form onSubmit={handleSubmit} className="auth-form">
                     <div className="form-group">
-                        <label htmlFor="name">Full Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            placeholder="John Doe"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Email Address</label>
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="your@email.com"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">New Password</label>
                         <input
                             type="password"
                             id="password"
@@ -83,7 +63,7 @@ export default function Register() {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="confirmPassword">Confirm Password</label>
+                        <label htmlFor="confirmPassword">Confirm New Password</label>
                         <input
                             type="password"
                             id="confirmPassword"
@@ -98,14 +78,10 @@ export default function Register() {
 
                     <div className="auth-actions">
                         <button type="submit" className="btn-primary auth-submit" disabled={isSubmitting}>
-                            {isSubmitting ? 'Creating account...' : 'Create Account'}
+                            {isSubmitting ? 'Updating...' : 'Update Password'}
                         </button>
                     </div>
                 </form>
-
-                <div className="auth-footer">
-                    <p>Already have an account? <Link to="/login">Sign in</Link></p>
-                </div>
             </div>
         </div>
     );

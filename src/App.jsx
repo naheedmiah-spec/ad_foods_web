@@ -20,6 +20,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import AdminAnalytics from './pages/AdminAnalytics';
 import UserManagement from './pages/UserManagement';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 
 function ProtectedAdminRoute({ children }) {
   const { isAuthenticated, isAdmin, loading } = useAuth();
@@ -65,6 +67,8 @@ function App() {
               <Route path="/legal" element={<Legal />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/admin" element={<ProtectedAdminRoute><AdminAnalytics /></ProtectedAdminRoute>} />
               <Route path="/users" element={<ProtectedAdminRoute><UserManagement /></ProtectedAdminRoute>} />
             </Routes>
