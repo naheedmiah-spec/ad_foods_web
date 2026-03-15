@@ -1,12 +1,10 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Footer.css';
+import { supabase } from '../lib/supabase';
 
 export default function Footer() {
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState({ type: '', message: '' });
 
-    const handleSubscribe = (e) => {
+    const handleSubscribe = async (e) => {
         e.preventDefault();
         if (!email) {
             setStatus({ type: 'error', message: 'Please enter an email address.' });
@@ -19,13 +17,27 @@ export default function Footer() {
             return;
         }
 
-        // Simulate API call
         setStatus({ type: 'loading', message: 'Subscribing...' });
 
-        setTimeout(() => {
-            setStatus({ type: 'success', message: 'Thank you for subscribing!' });
+        try {
+            const { error } = await supabase
+                .from('newsletter_subscriptions')
+                .insert([{ email: email.toLowerCase() }]);
+
+            if (error) {
+                if (error.code === '23505') {
+                    setStatus({ type: 'success', message: 'You are already subscribed!' });
+                } else {
+                    throw error;
+                }
+            } else {
+                setStatus({ type: 'success', message: 'Thank you for subscribing!' });
+            }
             setEmail('');
-        }, 1200);
+        } catch (error) {
+            console.error('Newsletter error:', error);
+            setStatus({ type: 'error', message: 'Something went wrong. Please try again later.' });
+        }
     };
 
     const handleEmailChange = (e) => {
