@@ -13,8 +13,7 @@ export function AuthProvider({ children }) {
         const storedUsers = localStorage.getItem('ad_foods_all_users');
         if (!storedUsers) {
             const initialUsers = [
-                { email: 'naheed.miah@gmail.com', name: 'Naheed (Admin)', id: 'u_1', role: 'admin', status: 'active' },
-                { email: 'customer@example.com', name: 'Test User', id: 'u_2', role: 'user', status: 'active' }
+                { email: 'naheed.miah@gmail.com', name: 'Naheed (Admin)', id: 'u_1', role: 'admin', status: 'active' }
             ];
             localStorage.setItem('ad_foods_all_users', JSON.stringify(initialUsers));
             setUsers(initialUsers);

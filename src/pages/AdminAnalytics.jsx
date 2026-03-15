@@ -5,7 +5,7 @@ import './Pages.css';
 import './Admin.css';
 
 export default function AdminAnalytics() {
-    const { user } = useAuth();
+    const { user, users } = useAuth();
     const { orders, updateOrderStatus } = useOrders();
     const [selectedOrder, setSelectedOrder] = useState(null);
     const [statusMetadata, setStatusMetadata] = useState({ carrier: 'Royal Mail', trackingNumber: '', cancelReason: 'Out of Stock' });
@@ -15,10 +15,11 @@ export default function AdminAnalytics() {
     // Dynamic stats calculation
     const totalSales = orders.reduce((sum, order) => sum + order.amount, 0);
     const completedOrders = orders.filter(o => o.status === 'Completed' || o.status === 'Shipped').length;
+    const activeMembers = Array.isArray(users) ? users.length : 0;
 
     const stats = [
-        { label: 'Total Sales', value: `£${totalSales.toFixed(2)}`, change: '+12%', icon: '💰' },
-        { label: 'Total Members', value: '124', change: '+5%', icon: '👥' },
+        { label: 'Total Sales', value: `£${totalSales.toFixed(2)}`, icon: '💰' },
+        { label: 'Total Members', value: activeMembers.toString(), icon: '👥' },
         { label: 'Total Orders', value: orders.length.toString(), icon: '📦' },
         { label: 'Completed/Shipped', value: completedOrders.toString(), icon: '✅' }
     ];
