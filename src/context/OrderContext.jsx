@@ -1,32 +1,60 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { supabase } from '../lib/supabase';
+import { useAuth } from './AuthContext';
 
 const OrderContext = createContext();
 
 export function OrderProvider({ children }) {
-    const [orders, setOrders] = useState(() => {
-        const savedOrders = localStorage.getItem('ad_foods_orders');
-        return savedOrders ? JSON.parse(savedOrders) : [];
-    });
+    const { user } = useAuth();
+    const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        localStorage.setItem('ad_foods_orders', JSON.stringify(orders));
-    }, [orders]);
+        if (user) {
+            fetchOrders();
+        }
+    }, [user]);
 
-    const placeOrder = (orderDetails) => {
+    const fetchOrders = async () => {
+        const { data, error } = await supabase
+            .from('orders')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (data) setOrders(data);
+    };
+
+    const placeOrder = async (orderDetails) => {
         const newOrder = {
-            ...orderDetails,
-            id: `#ORD-${Math.floor(1000 + Math.random() * 9000)}`,
-            date: new Date().toISOString(),
-            status: 'Processing'
+            id: `#ORD-${Math.floor(1000 + Math.random() * 9000)}-${Date.now().toString().slice(-4)}`,
+            customer_name: orderDetails.customer,
+            customer_email: orderDetails.email,
+            customer_id: user?.id,
+            amount: orderDetails.amount,
+            status: 'Processing',
+            items: orderDetails.items,
+            metadata: {}
         };
-        setOrders(prev => [newOrder, ...prev]);
+
+        const { data, error } = await supabase
+            .from('orders')
+            .insert([newOrder])
+            .select();
+
+        if (error) throw error;
+
+        fetchOrders(); // Refresh local list
         return newOrder;
     };
 
-    const updateOrderStatus = (orderId, newStatus, metadata = {}) => {
-        setOrders(prev => prev.map(order =>
-            order.id === orderId ? { ...order, status: newStatus, ...metadata } : order
-        ));
+    const updateOrderStatus = async (orderId, newStatus, metadata = {}) => {
+        const { error } = await supabase
+            .from('orders')
+            .update({ status: newStatus, metadata: { ...metadata } })
+            .eq('id', orderId);
+
+        if (error) throw error;
+
+        fetchOrders();
     };
 
     return (

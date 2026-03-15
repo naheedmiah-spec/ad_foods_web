@@ -78,8 +78,8 @@ export default function AdminAnalytics() {
                     <p>Packing Slip: ${order.id}</p>
                 </div>
                 <div class="order-info">
-                    <p><strong>Customer:</strong> ${order.customer}</p>
-                    <p><strong>Date:</strong> ${new Date(order.date).toLocaleDateString()}</p>
+                    <p><strong>Customer:</strong> ${order.customer_name}</p>
+                    <p><strong>Date:</strong> ${new Date(order.created_at).toLocaleDateString()}</p>
                 </div>
                 <table>
                     <thead>
@@ -130,10 +130,10 @@ export default function AdminAnalytics() {
 
         // Simulate email sending
         const emailContent = `
-            To: ${selectedOrder.email}
+            To: ${selectedOrder.customer_email}
             Subject: Order ${selectedOrder.id} - ${status}
             
-            Hi ${selectedOrder.customer},
+            Hi ${selectedOrder.customer_name},
             
             Your order ${selectedOrder.id} has been updated to: ${status}.
             ${status === 'Shipped' ? `Tracking info: ${metadata.carrier} ${metadata.trackingNumber}\nYou can track your order at the carrier website.` : ''}
@@ -148,7 +148,7 @@ export default function AdminAnalytics() {
         `;
         console.log("Simulating Email Sending...", emailContent);
 
-        setNotification(`Email notification sent to ${selectedOrder.customer} (${status})`);
+        setNotification(`Email notification sent to ${selectedOrder.customer_name} (${status})`);
         setTimeout(() => setNotification(null), 5000);
 
         setShowStatusForm(false);
@@ -210,7 +210,7 @@ export default function AdminAnalytics() {
                                 {orders.map(order => (
                                     <tr key={order.id}>
                                         <td><strong>{order.id}</strong></td>
-                                        <td>{order.customer}</td>
+                                        <td>{order.customer_name}</td>
                                         <td>£{order.amount.toFixed(2)}</td>
                                         <td><span className={`status-badge ${order.status.toLowerCase()}`}>{order.status}</span></td>
                                         <td>
@@ -256,9 +256,9 @@ export default function AdminAnalytics() {
                         <div className="modal-body">
                             <div className="order-summary-grid">
                                 <div>
-                                    <p><strong>Customer:</strong> {selectedOrder.customer}</p>
-                                    <p><strong>Email:</strong> {selectedOrder.email}</p>
-                                    <p><strong>Date:</strong> {new Date(selectedOrder.date).toLocaleString()}</p>
+                                    <p><strong>Customer:</strong> {selectedOrder.customer_name}</p>
+                                    <p><strong>Email:</strong> {selectedOrder.customer_email}</p>
+                                    <p><strong>Date:</strong> {new Date(selectedOrder.created_at).toLocaleString()}</p>
                                     <p><strong>Status:</strong> <span className={`status-badge ${selectedOrder.status.toLowerCase()}`}>{selectedOrder.status}</span></p>
                                     {selectedOrder.trackingNumber && (
                                         <p className="tracking-info"><strong>Tracking:</strong> {selectedOrder.carrier} - {selectedOrder.trackingNumber}</p>

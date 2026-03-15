@@ -8,7 +8,7 @@ export default function CartSidebar({ isOpen, onClose, cartItems, onRemoveItem }
 
     const total = cartItems.reduce((sum, item) => sum + (item.sellingPrice || 0) * (item.quantity || 1), 0);
 
-    const handleCheckout = () => {
+    const handleCheckout = async () => {
         if (!isAuthenticated) {
             alert("Please login to place an order.");
             return;
@@ -19,21 +19,25 @@ export default function CartSidebar({ isOpen, onClose, cartItems, onRemoveItem }
             return;
         }
 
-        placeOrder({
-            customer: user?.name || 'Guest User',
-            email: user?.email || 'guest@example.com',
-            amount: total,
-            items: cartItems.map(item => ({
-                name: item.name,
-                category: item.category,
-                quantity: item.quantity || 1,
-                price: item.sellingPrice || 0
-            }))
-        });
+        try {
+            await placeOrder({
+                customer: user?.name || 'Guest User',
+                email: user?.email || 'guest@example.com',
+                amount: total,
+                items: cartItems.map(item => ({
+                    name: item.name,
+                    category: item.category,
+                    quantity: item.quantity || 1,
+                    price: item.sellingPrice || 0
+                }))
+            });
 
-        alert("Order placed successfully! Check the Admin Analytics to see it in real-time.");
-        onClose();
-        // Here you would usually clear the cart too
+            alert("Order placed successfully! Check the Admin Analytics to see it in real-time.");
+            onClose();
+        } catch (error) {
+            console.error("Checkout failed:", error);
+            alert("Failed to place order. Please try again.");
+        }
     };
 
     return (

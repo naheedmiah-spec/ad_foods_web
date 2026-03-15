@@ -34,8 +34,8 @@ export default function UserManagement() {
                                 <tr key={u.id}>
                                     <td>
                                         <div className="user-info-cell">
-                                            <div className="user-avatar">{u.name.charAt(0)}</div>
-                                            <strong>{u.name}</strong>
+                                            <div className="user-avatar">{(u.name || (u.email ? u.email.charAt(0) : '?'))}</div>
+                                            <strong>{u.name || (u.email ? u.email.split('@')[0] : 'Unknown')}</strong>
                                         </div>
                                     </td>
                                     <td>{u.email}</td>
@@ -62,7 +62,7 @@ export default function UserManagement() {
                                                 <button
                                                     className="btn-text"
                                                     onClick={() => manageUser(u.id, { role: 'user' })}
-                                                    disabled={u.email === 'naheed.miah@gmail.com'}
+                                                    disabled={u.email === 'naheed.miah@gmail.com' || u.email === 'anas.arif786@adfoods.co.uk'}
                                                 >
                                                     Revoke Admin
                                                 </button>
