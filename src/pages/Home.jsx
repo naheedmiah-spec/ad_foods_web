@@ -143,13 +143,6 @@ export default function Home() {
                             <p>3 London locations</p>
                         </div>
                     </Link>
-                    <Link to="/about" className="feature-item">
-                        <div className="feature-icon">📖</div>
-                        <div className="feature-text">
-                            <h4>Our Story</h4>
-                            <p>About AD Foods</p>
-                        </div>
-                    </Link>
                     <Link to="/faq" className="feature-item">
                         <div className="feature-icon">💬</div>
                         <div className="feature-text">
