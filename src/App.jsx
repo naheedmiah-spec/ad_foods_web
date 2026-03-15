@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -47,6 +47,8 @@ function App() {
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/admin" element={<ProtectedAdminRoute><AdminAnalytics /></ProtectedAdminRoute>} />
               <Route path="/users" element={<ProtectedAdminRoute><UserManagement /></ProtectedAdminRoute>} />
+              <Route path="/home" element={<Navigate to="/" replace />} />
+              <Route path="/wholesale" element={<Navigate to="/catalog" replace />} />
             </Routes>
           </main>
           <Footer />
