@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import CartSidebar from './components/CartSidebar';
 import Home from './pages/Home';
 import Catalog from './pages/Catalog';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import DeliveryInfo from './pages/DeliveryInfo';
 import FAQ from './pages/FAQs';
 import Legal from './pages/Legal';
 
