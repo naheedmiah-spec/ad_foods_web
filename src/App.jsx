@@ -50,6 +50,7 @@ function App() {
               <Route path="/home" element={<Navigate to="/" replace />} />
               <Route path="/index.html" element={<Navigate to="/" replace />} />
               <Route path="/wholesale" element={<Navigate to="/catalog" replace />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
           <Footer />
