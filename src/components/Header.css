@@ -178,6 +178,125 @@
     }
 }
 
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.desktop-auth {
+    display: flex;
+}
+
+.mobile-only-links {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .desktop-auth {
+        display: none;
+    }
+
+    .main-header {
+        padding: 16px 0;
+    }
+
+    .main-header-content {
+        gap: 15px;
+    }
+
+    .logo-text {
+        font-size: 20px;
+    }
+
+    .logo-symbol {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .sticky-nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        box-shadow: var(--shadow-lg);
+        border-top: none;
+        padding-top: 80px;
+    }
+
+    .sticky-nav.mobile-open {
+        left: 0;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 16px 24px;
+        width: 100%;
+    }
+
+    .mobile-only-links {
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+        background: var(--bg-secondary);
+    }
+
+    .mobile-user-name {
+        font-weight: 700;
+        color: var(--accent-primary);
+    }
+
+    .mobile-logout-btn {
+        background: var(--accent-red);
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: var(--radius-md);
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        backdrop-filter: blur(2px);
+    }
+
+    .utility-bar {
+        display: none;
+    }
+}
+
 .auth-links {
     display: flex;
     align-items: center;
