@@ -74,7 +74,7 @@ export default function Home() {
             <div className="trust-bar">
                 <div className="container trust-content">
                     <div className="trust-item"><span>✨</span> Premium Sourcing</div>
-                    <div className="trust-item"><span>🚚</span> Fast UK Delivery</div>
+                    <div className="trust-item"><span>🏬</span> Open 7 Days a Week</div>
                     <div className="trust-item"><span>📦</span> Eco-Friendly Packing</div>
                     <div className="trust-item"><span>⭐</span> 5-Star Quality</div>
                 </div>
