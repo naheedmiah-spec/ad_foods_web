@@ -76,13 +76,15 @@ export default function Catalog() {
 
             <div className="catalog-main animate-fade-in">
                 <div className="catalog-header-simple">
-                    <h2>{selectedCategory} Products</h2>
-                    <p>Showing {filteredProducts.length} results</p>
+                    <div className="header-content-left">
+                        <h2>{selectedCategory}</h2>
+                        <p>{filteredProducts.length} items curated for your pantry</p>
+                    </div>
 
                     <div className="catalog-controls">
                         <input
                             type="text"
-                            placeholder="Search within this category..."
+                            placeholder="Filter collection..."
                             value={searchTerm}
                             onChange={handleSearchChange}
                         />

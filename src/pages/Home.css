@@ -3,11 +3,11 @@
 }
 
 .hero-section {
-    background: var(--bg-secondary);
-    padding: 80px 0;
+    background: var(--bg-primary);
+    padding: 100px 0 60px;
     overflow: hidden;
     position: relative;
-    min-height: 600px;
+    min-height: 500px;
     display: flex;
     align-items: center;
 }
@@ -42,8 +42,8 @@
 
 .hero-text {
     flex: 1;
-    transform: translateX(-50px);
-    opacity: 0;
+    opacity: 1;
+    /* Ensure visible by default */
     transition: all 0.8s ease 0.3s;
 }
 
@@ -64,10 +64,12 @@
 }
 
 .hero-text h1 {
-    font-size: 56px;
+    font-size: 72px;
+    font-weight: 800;
     color: var(--text-primary);
-    line-height: 1.1;
+    line-height: 0.95;
     margin-bottom: 24px;
+    letter-spacing: -0.04em;
 }
 
 .hero-text h1 span {
@@ -83,21 +85,24 @@
 
 .cta-btn {
     display: inline-block;
-    padding: 16px 36px;
-    color: white;
-    border-radius: var(--radius-md);
+    padding: 18px 48px;
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    border-radius: var(--radius-sm);
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     transition: all var(--transition-smooth);
     border: none;
     cursor: pointer;
 }
 
 .cta-btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    color: white;
-    filter: brightness(1.1);
+    background-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    color: var(--bg-primary);
 }
 
 .hero-image {
@@ -212,32 +217,60 @@
     }
 }
 
+.trust-bar {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 12px 0;
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.trust-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .categories-section {
-    padding: 80px 0;
+    padding: 100px 0;
+    background: var(--bg-primary);
 }
 
 .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 40px;
+    text-align: center;
+    margin-bottom: 60px;
 }
 
 .section-header h2 {
-    font-size: 32px;
+    font-size: 48px;
+    font-weight: 800;
     color: var(--text-primary);
+    margin-bottom: 12px;
+    letter-spacing: -0.03em;
 }
 
 .section-header a {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--accent-primary);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    border-bottom: 2px solid var(--accent-primary);
 }
 
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    justify-content: center;
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
 
 .category-card {
@@ -245,34 +278,40 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 30px 20px;
-    background: white;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-light);
+    padding: 0;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    border: none;
     transition: all var(--transition-smooth);
     text-decoration: none;
+    overflow: hidden;
+    aspect-ratio: 1/1.2;
+    justify-content: center;
 }
 
 .category-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--accent-primary);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
 }
 
 .category-icon {
-    width: 100px;
-    height: 100px;
-    border-radius: var(--radius-full);
+    width: 100%;
+    height: 70%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 60px;
+    margin-bottom: 0;
+    transition: transform 0.5s ease;
 }
 
 .category-card h3 {
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: var(--text-primary);
+    padding: 20px;
 }
 
 .features-section {

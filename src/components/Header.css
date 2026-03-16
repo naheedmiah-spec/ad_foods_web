@@ -1,13 +1,18 @@
 .app-header {
     background: var(--bg-primary);
     border-bottom: 1px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .utility-bar {
-    background: var(--bg-secondary);
+    background: transparent;
     border-bottom: 1px solid var(--border-light);
-    padding: 8px 0;
-    font-size: 13px;
+    padding: 6px 0;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 .utility-content {
@@ -54,22 +59,24 @@
 }
 
 .logo-symbol {
-    background: var(--accent-primary);
-    color: white;
-    width: 40px;
-    height: 40px;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     font-weight: 800;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .logo-text {
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: 800;
     color: var(--text-primary);
     margin: 0;
+    letter-spacing: -0.03em;
 }
 
 .header-search {
@@ -81,25 +88,27 @@
 
 .header-search input {
     width: 100%;
-    padding: 12px 20px;
-    padding-right: 50px;
-    border: 2px solid var(--border-light);
-    border-radius: var(--radius-full);
-    font-size: 15px;
-    transition: border-color var(--transition-fast);
+    padding: 10px 16px;
+    padding-right: 40px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    background: var(--bg-secondary);
+    transition: all var(--transition-fast);
 }
 
 .header-search input:focus {
     outline: none;
-    border-color: var(--accent-primary);
+    border-color: var(--text-primary);
+    background: var(--bg-card);
 }
 
 .search-btn {
     position: absolute;
-    right: 15px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-muted);
+    color: var(--text-primary);
 }
 
 .header-actions {
@@ -155,21 +164,34 @@
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 30px;
-    padding: 12px 0;
+    gap: 40px;
+    padding: 16px 0;
+    justify-content: center;
 }
 
 .nav-menu a {
     color: var(--text-primary);
-    font-weight: 600;
-    font-size: 15px;
+    font-weight: 700;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color var(--transition-fast);
+    letter-spacing: 0.1em;
+    padding: 8px 0;
+    position: relative;
 }
 
-.nav-menu a:hover {
-    color: var(--accent-primary);
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: width var(--transition-fast);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
 }
 
 @media (max-width: 992px) {

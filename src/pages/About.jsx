@@ -4,24 +4,42 @@ import './About.css';
 export default function About() {
     return (
         <div className="page-container container animate-fade-in">
-            <div className="page-header">
-                <h1>About AD Foods</h1>
-                <p>Your trusted neighborhood grocery.</p>
+            <div className="about-hero">
+                <h1>Authenticity,<br /><span>Found.</span></h1>
+                <p>Curating the world's finest pantry essentials since our inception.</p>
             </div>
-            <div className="page-content">
-                <section className="info-section">
-                    <h2>Our Story</h2>
-                    <p>AD Foods has been serving the community with premium quality prepackaged ingredients for years. We source the best products to ensure our customers get top-tier groceries at our London locations.</p>
-                    <p>Whether you're looking for everyday essentials or specialty items, our wide selection caters to all your needs.</p>
+
+            <div className="page-content about-content">
+                <section className="about-section">
+                    <div className="section-title">
+                        <h2>Our Story</h2>
+                    </div>
+                    <div className="section-text">
+                        <p>AD Foods began with a simple mission: to make authentic, premium-quality ingredients accessible to everyone. We specialize in hard-to-find international specialties and essential pantry staples, hand-picked for their quality and heritage.</p>
+                        <p>With three flagship locations across London, we serve a community of discerning cooks and food lovers who value substance and style in their kitchen.</p>
+                    </div>
                 </section>
 
-                <section className="info-section">
-                    <h2>Our Values</h2>
-                    <ul className="values-list">
-                        <li><strong>Quality:</strong> We never compromise on the quality of our product range.</li>
-                        <li><strong>Community:</strong> Proudly serving our local neighborhoods with care.</li>
-                        <li><strong>Convenience:</strong> Making your grocery shopping as easy as possible.</li>
-                    </ul>
+                <section className="about-section">
+                    <div className="section-title">
+                        <h2>Our Ethos</h2>
+                    </div>
+                    <div className="section-text">
+                        <ul className="ethos-list">
+                            <li>
+                                <strong>Uncompromising Quality</strong>
+                                <p>We only source from producers who share our commitment to excellence.</p>
+                            </li>
+                            <li>
+                                <strong>Global Community</strong>
+                                <p>Celebrating diverse culinary traditions through authentic ingredients.</p>
+                            </li>
+                            <li>
+                                <strong>Curated Convenience</strong>
+                                <p>A simplified, premium shopping experience for the modern pantry.</p>
+                            </li>
+                        </ul>
+                    </div>
                 </section>
             </div>
         </div>

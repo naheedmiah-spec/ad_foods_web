@@ -53,63 +53,43 @@ export default function Home() {
     return (
         <div className="home-container animate-fade-in">
             <section className="hero-section">
-                <div className="slideshow-controls">
-                    <button className="slide-arrow prev" onClick={prevSlide}>&larr;</button>
-                    <button className="slide-arrow next" onClick={nextSlide}>&rarr;</button>
-                </div>
-
-                {slides.map((slide, index) => (
-                    <div
-                        key={slide.id}
-                        className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
-                    >
-                        <div className="container hero-content">
-                            <div className="hero-text">
-                                <span className="hero-badge" style={{ backgroundColor: `${slide.color}20`, color: slide.color }}>
-                                    {slide.badge}
-                                </span>
-                                <h1 dangerouslySetInnerHTML={{ __html: slide.title }} />
-                                <p>{slide.text}</p>
-                                <Link to="/catalog" className="cta-btn" style={{ backgroundColor: slide.color }}>
-                                    Explore Catalog
-                                </Link>
-                            </div>
-                            <div className="hero-image">
-                                <div className="hero-svg-placeholder" style={{ borderColor: slide.color }}>
-                                    <div className="slide-icon-burst" style={{ backgroundColor: `${slide.color}15` }}>
-                                        <span>{slide.imageChar}</span>
-                                    </div>
-                                    <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="200" cy="200" r="180" fill={slide.color} fillOpacity="0.05" />
-                                        <rect x="100" y="100" width="200" height="250" rx="10" fill="white" stroke={slide.color} strokeWidth="2" strokeDasharray="10 5" />
-                                    </svg>
-                                </div>
-                            </div>
+                <div className="container hero-content">
+                    <div className="hero-text">
+                        <span className="hero-badge">Curated Excellence</span>
+                        <h1>Global <br /><span>Pantry.</span><br />Redefined.</h1>
+                        <p>Explore our premium collection of authentic prepackaged goods and international specialties, sourced from the world's finest producers.</p>
+                        <div className="hero-actions">
+                            <Link to="/catalog" className="cta-btn">Shop the Collection</Link>
                         </div>
                     </div>
-                ))}
-
-                <div className="slide-dots">
-                    {slides.map((_, index) => (
-                        <button
-                            key={index}
-                            className={`slide-dot ${index === currentSlide ? 'active' : ''}`}
-                            onClick={() => setCurrentSlide(index)}
-                        />
-                    ))}
+                    <div className="hero-image">
+                        <div className="hero-visual">
+                            <div className="visual-circle"></div>
+                            <span className="visual-icon">🌍</span>
+                        </div>
+                    </div>
                 </div>
             </section>
+
+            <div className="trust-bar">
+                <div className="container trust-content">
+                    <div className="trust-item"><span>✨</span> Premium Sourcing</div>
+                    <div className="trust-item"><span>🚚</span> Fast UK Delivery</div>
+                    <div className="trust-item"><span>📦</span> Eco-Friendly Packing</div>
+                    <div className="trust-item"><span>⭐</span> 5-Star Quality</div>
+                </div>
+            </div>
 
             <section className="categories-section">
                 <div className="container">
                     <div className="section-header">
-                        <h2>Shop by Category</h2>
-                        <Link to="/catalog">View All</Link>
+                        <h2>Collections</h2>
+                        <Link to="/catalog">View All Categories</Link>
                     </div>
                     <div className="category-grid">
                         {categories.map(cat => (
                             <Link key={cat.id} to={`/catalog?category=${cat.name}`} className="category-card">
-                                <div className="category-icon" style={{ backgroundColor: `${cat.color}15`, color: cat.color }}>
+                                <div className="category-icon">
                                     <span>{cat.image}</span>
                                 </div>
                                 <h3>{cat.name}</h3>
@@ -121,34 +101,27 @@ export default function Home() {
 
             <section className="features-section">
                 <div className="container feature-grid">
-                    <Link to="/catalog" className="feature-item">
-                        <div className="feature-icon">📦</div>
+                    <div className="feature-item">
+                        <div className="feature-icon">🌿</div>
                         <div className="feature-text">
-                            <h4>Premium Range</h4>
-                            <p>Imported specialties</p>
+                            <h4>Specialty Sourcing</h4>
+                            <p>Hand-picked global ingredients</p>
                         </div>
-                    </Link>
-                    <Link to="/about" className="feature-item">
-                        <div className="feature-icon">⭐</div>
+                    </div>
+                    <div className="feature-item">
+                        <div className="feature-icon">🏢</div>
                         <div className="feature-text">
-                            <h4>Quality Assured</h4>
-                            <p>Hand-picked products</p>
+                            <h4>Showroom Quality</h4>
+                            <p>Visit us in Paddington & Claremont</p>
                         </div>
-                    </Link>
-                    <Link to="/contact" className="feature-item">
-                        <div className="feature-icon">📍</div>
+                    </div>
+                    <div className="feature-item">
+                        <div className="feature-icon">🛡️</div>
                         <div className="feature-text">
-                            <h4>Visit Us</h4>
-                            <p>3 London locations</p>
+                            <h4>Secure Checkout</h4>
+                            <p>Reliable and protected payments</p>
                         </div>
-                    </Link>
-                    <Link to="/faq" className="feature-item">
-                        <div className="feature-icon">💬</div>
-                        <div className="feature-text">
-                            <h4>Any Questions?</h4>
-                            <p>Friendly support</p>
-                        </div>
-                    </Link>
+                    </div>
                 </div>
             </section>
         </div>

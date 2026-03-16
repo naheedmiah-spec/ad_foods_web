@@ -1,9 +1,81 @@
-/* Styles moved to Pages.css */
-.values-list {
-  list-style: disc;
-  padding-left: 20px;
+.about-hero {
+  padding: 160px 0 60px;
+  /* Increased top padding for sticky header */
+  text-align: left;
 }
 
-.values-list li {
+.about-hero h1 {
+  font-size: 84px;
+  margin-bottom: 24px;
+}
+
+.about-hero h1 span {
+  color: var(--accent-primary);
+}
+
+.about-hero p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 500px;
+}
+
+.about-content {
+  margin-top: 60px;
+}
+
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  padding: 80px 0;
+  border-top: 1px solid var(--border-light);
+}
+
+.section-title h2 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.section-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  color: var(--text-secondary);
+}
+
+.ethos-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.ethos-list li strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
   margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.ethos-list li p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 48px;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    padding: 40px 0;
+  }
+
+  .ethos-list {
+    grid-template-columns: 1fr;
+  }
 }
