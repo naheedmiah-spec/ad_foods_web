@@ -55,72 +55,60 @@ export default function Home() {
             <section className="hero-section">
                 <div className="container hero-content">
                     <div className="hero-text">
-                        <span className="hero-badge">Curated Excellence</span>
-                        <h1>Global <br /><span>Pantry.</span><br />Redefined.</h1>
-                        <p>Explore our premium collection of authentic prepackaged goods and international specialties, sourced from the world's finest producers.</p>
+                        <span className="hero-badge">Curated Global Pantry</span>
+                        <h1>Extraordinary <br />Ingredients for the <br />Everyday <span>Kitchen.</span></h1>
+                        <p>Sourcing the world's most authentic pantry staples, delivered to our London doorsteps. Heritage-conscious flavor, curated for you.</p>
                         <div className="hero-actions">
-                            <Link to="/catalog" className="cta-btn">Shop the Collection</Link>
+                            <Link to="/catalog" className="cta-btn primary">Shop the Collection</Link>
+                            <Link to="/about" className="cta-btn secondary">Our Sourcing Story</Link>
                         </div>
                     </div>
-                    <div className="hero-image">
-                        <div className="hero-visual">
-                            <div className="visual-circle"></div>
-                            <span className="visual-icon">🌍</span>
+                    <div className="hero-visual">
+                        <div className="hero-art-piece">
+                            <div className="art-circle"></div>
+                            <span className="art-emblem">🌍</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <div className="trust-bar">
-                <div className="container trust-content">
-                    <div className="trust-item"><span>✨</span> Premium Sourcing</div>
-                    <div className="trust-item"><span>🏬</span> Open 7 Days a Week</div>
-                    <div className="trust-item"><span>📦</span> Eco-Friendly Packing</div>
-                    <div className="trust-item"><span>⭐</span> 5-Star Quality</div>
+            <div className="trust-strip">
+                <div className="container trust-strip-content">
+                    <div className="trust-strip-item">Sourced Globally</div>
+                    <div className="trust-strip-item">Three London Shops</div>
+                    <div className="trust-strip-item">Trusted Heritage</div>
                 </div>
             </div>
 
-            <section className="categories-section">
+            <section className="shop-floor">
                 <div className="container">
-                    <div className="section-header">
-                        <h2>Collections</h2>
-                        <Link to="/catalog">View All Categories</Link>
+                    <div className="shop-header">
+                        <h2>The Shop Floor</h2>
+                        <p>Explore our curated collections by category</p>
                     </div>
-                    <div className="category-grid">
+                    <div className="shop-grid">
                         {categories.map(cat => (
-                            <Link key={cat.id} to={`/catalog?category=${cat.name}`} className="category-card">
-                                <div className="category-icon">
+                            <Link key={cat.id} to={`/catalog?category=${cat.name}`} className="shop-card">
+                                <div className="shop-card-image">
                                     <span>{cat.image}</span>
                                 </div>
-                                <h3>{cat.name}</h3>
+                                <div className="shop-card-info">
+                                    <h3>{cat.name}</h3>
+                                    <span>Explore Range &rarr;</span>
+                                </div>
                             </Link>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section className="features-section">
-                <div className="container feature-grid">
-                    <div className="feature-item">
-                        <div className="feature-icon">🌿</div>
-                        <div className="feature-text">
-                            <h4>Specialty Sourcing</h4>
-                            <p>Hand-picked global ingredients</p>
-                        </div>
-                    </div>
-                    <div className="feature-item">
-                        <div className="feature-icon">🏢</div>
-                        <div className="feature-text">
-                            <h4>Showroom Quality</h4>
-                            <p>Visit us in Paddington & Claremont</p>
-                        </div>
-                    </div>
-                    <div className="feature-item">
-                        <div className="feature-icon">🛡️</div>
-                        <div className="feature-text">
-                            <h4>Secure Checkout</h4>
-                            <p>Reliable and protected payments</p>
-                        </div>
+            <section className="sourcing-feature">
+                <div className="container sourcing-content">
+                    <div className="sourcing-text">
+                        <span className="section-label">B2B & Specialty</span>
+                        <h2>Global Partners in Flavor</h2>
+                        <p>Beyond our retail shelves, we offer bespoke specialty sourcing for chefs, restaurants, and food partners globally. If it exists, we can find it.</p>
+                        <Link to="/contact" className="text-cta">Partner with Ad Foods &rarr;</Link>
                     </div>
                 </div>
             </section>

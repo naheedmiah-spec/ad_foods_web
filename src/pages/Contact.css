@@ -1,47 +1,148 @@
-/* Styles moved to Pages.css or specific to Contact */
-.info-details-row {
-    display: flex;
-    gap: 30px;
-    margin-top: 24px;
+.contact-hero {
+    padding: 120px 0 80px;
 }
 
-.info-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.contact-hero h1 {
+    font-size: 84px;
+    line-height: 1.05;
+    margin-bottom: 32px;
+}
+
+.contact-hero h1 span {
+    color: var(--accent-primary);
+}
+
+.contact-hero p {
+    font-size: 20px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.7;
+}
+
+.contact-content {
+    margin-top: 40px;
+}
+
+.contact-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 100px;
+}
+
+.method-card {
+    padding: 40px;
     background: var(--bg-secondary);
-    padding: 15px 20px;
     border-radius: var(--radius-md);
-    flex: 1;
+    transition: all var(--transition-smooth);
 }
 
-.info-icon {
+.method-card:hover {
+    transform: translateY(-5px);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-md);
+}
+
+.method-card h3 {
+    font-family: 'Fraunces', serif;
     font-size: 24px;
-}
-
-.info-card strong {
-    display: block;
-    font-size: 12px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-}
-
-.info-card p {
+    margin-bottom: 16px;
     color: var(--text-primary);
+}
+
+.method-card p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.method-card a {
+    font-size: 18px;
     font-weight: 700;
-    margin: 0;
+    color: var(--accent-primary);
+    text-decoration: none;
+}
+
+.method-card a:hover {
+    text-decoration: underline;
+}
+
+.locations-heading {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 48px;
+}
+
+.locations-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-bottom: 120px;
+}
+
+.location-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: center;
+    padding-top: 60px;
+    border-top: 1px solid var(--border-light);
+}
+
+.location-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-primary);
+    margin-bottom: 16px;
+}
+
+.location-details h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.location-details h4 span {
+    color: var(--accent-primary);
+}
+
+.location-details .address {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.location-details .hours {
+    font-size: 14px;
+    color: var(--text-muted);
 }
 
 .map-wrapper {
-    margin-top: 20px;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-md);
 }
 
-@media (max-width: 640px) {
-    .info-details-row {
-        flex-direction: column;
-        gap: 15px;
+@media (max-width: 992px) {
+    .contact-hero h1 {
+        font-size: 56px;
+    }
+
+    .contact-methods {
+        grid-template-columns: 1fr;
+    }
+
+    .location-card {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
 }

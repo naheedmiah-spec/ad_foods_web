@@ -23,15 +23,6 @@ export default function Header() {
 
     return (
         <header className="app-header">
-            <div className="utility-bar">
-                <div className="container utility-content">
-                    <div className="utility-links">
-                        <Link to="/contact">Our Stores</Link>
-                        <Link to="/faq">Any Questions?</Link>
-                    </div>
-                </div>
-            </div>
-
             <div className="main-header">
                 <div className="container main-header-content">
                     <button className="mobile-menu-toggle" onClick={toggleMenu} aria-label="Toggle Menu">
@@ -42,22 +33,21 @@ export default function Header() {
                         )}
                     </button>
 
-                    <Link to="/" className="brand" onClick={closeMenu}>
-                        <span className="logo-symbol">AD</span>
-                        <h1 className="logo-text">AD Foods</h1>
-                    </Link>
-
                     <form className="header-search" onSubmit={handleSearchSubmit}>
                         <input
                             type="text"
-                            placeholder="Search products..."
+                            placeholder="search products..."
                             value={tempSearch}
                             onChange={(e) => setTempSearch(e.target.value)}
                         />
                         <button type="submit" className="search-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                         </button>
                     </form>
+
+                    <Link to="/" className="brand" onClick={closeMenu}>
+                        <h1 className="logo-text">ad foods</h1>
+                    </Link>
 
                     <div className="header-actions">
                         <div className="desktop-auth">

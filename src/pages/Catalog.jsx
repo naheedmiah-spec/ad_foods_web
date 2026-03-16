@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import productsData from '../data/products.json';
 import './Catalog.css';
 
@@ -59,32 +59,39 @@ export default function Catalog() {
     return (
         <div className="catalog-wrapper container">
             <aside className="catalog-sidebar">
-                <h3>Categories</h3>
-                <ul className="category-list">
-                    {categories.map(cat => (
-                        <li key={cat}>
-                            <button
-                                className={`category-link ${selectedCategory === cat ? 'active' : ''}`}
-                                onClick={() => { setSelectedCategory(cat); setCurrentPage(1); }}
-                            >
-                                {cat}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
+                <div className="sidebar-section">
+                    <h3>Collections</h3>
+                    <ul className="category-list">
+                        {categories.map(cat => (
+                            <li key={cat}>
+                                <button
+                                    className={`category-link ${selectedCategory === cat ? 'active' : ''}`}
+                                    onClick={() => { setSelectedCategory(cat); setCurrentPage(1); }}
+                                >
+                                    {cat}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div className="sidebar-promo">
+                    <h4>Specialty Sourcing</h4>
+                    <p>Looking for a rare international ingredient? Our global network can find it for you.</p>
+                </div>
             </aside>
 
             <div className="catalog-main animate-fade-in">
                 <div className="catalog-header-simple">
                     <div className="header-content-left">
-                        <h2>{selectedCategory}</h2>
-                        <p>{filteredProducts.length} items curated for your pantry</p>
+                        <h2>{selectedCategory.toLowerCase()}<span>.</span></h2>
+                        <p>{filteredProducts.length} curated essentials</p>
                     </div>
 
                     <div className="catalog-controls">
                         <input
                             type="text"
-                            placeholder="Filter collection..."
+                            placeholder="filter collection..."
                             value={searchTerm}
                             onChange={handleSearchChange}
                         />
@@ -112,10 +119,26 @@ export default function Catalog() {
                                     <div className="product-info">
                                         <span className="product-category-text">{product.category}</span>
                                         <h3 className="product-title" title={product.name}>{product.name}</h3>
-                                        <p className="product-status">Available in store</p>
+                                        <div className="product-meta">
+                                            <span className="product-status">Available in store</span>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
+
+                            {/* specialty sourcing card */}
+                            <div className="product-card sourcing-card">
+                                <div className="product-image-container">
+                                    <div className="product-image-placeholder sourcing-icon">
+                                        <span>?</span>
+                                    </div>
+                                </div>
+                                <div className="product-info">
+                                    <span className="product-category-text">Bespoke Service</span>
+                                    <h3 className="product-title">Can't find a specific ingredient?</h3>
+                                    <Link to="/contact" className="sourcing-link">Request Sourcing &rarr;</Link>
+                                </div>
+                            </div>
                         </div>
 
                         {totalPages > 1 && (
